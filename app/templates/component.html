@@ -4,33 +4,33 @@
     <h1 id="indexheader">
     </h1>
     <div class="homepage-content">
-        <form id="registerform" method="post">
-            <h1 id="headtitle">Enter asset detail</h1>
+        <form id="componentForm" method="post">
+            <h1 id="headtitle">Enter component detail</h1>
             {{ form.hidden_tag() }}
             <p>
-                {{ form.name.label }}
+                {{ form.asset.label }}
                 <br>
-                {{ form.name(size=32,id="name") }}
+                {{ form.asset(size=32,id="name") }}
                 <br>
-                {% for error in form.name.errors %}
+                {% for error in form.asset.errors %}
                     <span class="warning" style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
-                {{ form.endofservice.label }}
+                {{ form.decomCost_p_unit.label }}
                 <br>
-                {{ form.endofservice(size=32,id="endofservice") }}
+                {{ form.decomCost_p_unit(size=32,id="decomCost_p_unit") }}
                 <br>
-                {% for error in form.endofservice.errors %}
+                {% for error in form.decomCost_p_unit.errors %}
                     <span class="warning" style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
-                {{ form.budget.label }}
+                {{ form.decomUnit.label }}
                 <br>
-                {{ form.budget(size=32,id="budget") }}
+                {{ form.decomUnit(size=32,id="decomUnit") }}
                 <br>
-                {% for error in form.budget.errors %}
+                {% for error in form.decomUnit.errors %}
                     <span class="warning" style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
