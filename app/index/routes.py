@@ -8,7 +8,7 @@ from app.model import asset
 from app.controller import add, getAssetByName
 import json
 
-#route to home page
+#route to home page ssss
 @bp.route('/',methods=['GET', 'POST'])
 @bp.route('/index',methods=['GET', 'POST'])
 def index():
