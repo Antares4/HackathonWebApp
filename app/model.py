@@ -8,9 +8,9 @@ class asset(UserMixin, db.Model):
     __tablename__ = 'asset'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    endofservice = db.Column(db.String(100), nullable=False, unique=True)
+    endofservice = db.Column(db.String(100), nullable=False)
     budget = db.Column(db.String(96), nullable=False)
-    Carbon_p_y = db.Column(db.String(128), nullable=False, unique=True)
+    Carbon_p_y = db.Column(db.String(128), nullable=False)
     components = db.relationship("component", backref="asset")
 
 class component(UserMixin, db.Model):
