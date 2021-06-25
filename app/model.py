@@ -9,6 +9,7 @@ class asset(UserMixin, db.Model):
     __tablename__ = 'asset'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    assetName = db.Column(db.String(100), nullable=False)
     endofservice = db.Column(db.String(100), nullable=False)
     budget = db.Column(db.String(96), nullable=False)
     Carbon_p_y = db.Column(db.String(128), nullable=False)
@@ -19,6 +20,7 @@ class component(UserMixin, db.Model):
     __tablename__ = 'components'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    componentName = db.Column(db.String(100), nullable=False)
     decomCost_p_unit = db.Column(db.Integer, nullable=False)
     decomUnit = db.Column(db.Integer, nullable=False)
     CanBeUsedForHydrogenProduction = db.Column(db.Boolean, nullable=False)

@@ -2,10 +2,10 @@
 {%extends "base.html"%}
 {% block content %}
 <div class="all-wrapper homepage">
-    <h1 id="indexheader">
-    </h1>
+    <h1 id="indexheader">Evaluation</h1>
     <div class="homepage-content">
-        <form id="registerform" method="post">
+        {% if types == "asset" %}
+        <form id="assetForm" method="post">
             <h1 id="headtitle">Enter asset detail</h1>
             {{ form.hidden_tag() }}
             <p>
@@ -46,6 +46,81 @@
             </p>
             <p>{{ form.submit(id="submit") }}</p>
         </form>
+        {%else%}
+        <form id="componentForm" method="post">
+            <h1 id="headtitle">Enter component detail</h1>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.componentName.label }}
+                <br>
+                {{ form.componentName(size=32)}}
+                {% for error in form.componentName.errors %}
+                <br>
+                <span class="warning" style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.asset.label }}
+                <br>
+                {{ form.asset(size=32,id="name") }}
+                <br>
+                {% if error %}
+                    <span>Asset does not exist</span>
+                {% endif %}
+                {% for error in form.asset.errors %}
+                    <span class="warning" style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.decomCost_p_unit.label }}
+                <br>
+                {{ form.decomCost_p_unit(size=32,id="decomCost_p_unit") }}
+                <br>
+                {% for error in form.decomCost_p_unit.errors %}
+                    <span class="warning" style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.decomUnit.label }}
+                <br>
+                {{ form.decomUnit(size=32,id="decomUnit") }}
+                <br>
+                {% for error in form.decomUnit.errors %}
+                    <span class="warning" style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.CanBeUsedForHydrogenProduction.label }}
+                <br>
+                {{ form.CanBeUsedForHydrogenProduction(size=32)}}
+                {% for error in form.CanBeUsedForHydrogenProduction.errors %}
+                <br>
+                <span class="warning" style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>{{ form.submit(id="submit") }}</p>
+        </form>
+        {% endif %}
+        <a href="{{url_for('index.index', type='component')}}">Add component</a>
+        <a href="{{url_for('index.index', type='asset')}}">add Asset</a>
+        {% if data != none %}
+        <table>
+            {% for item in data.assets%}
+            <tr>
+                <th>{{item.assetName}}</th>
+                <td><a href="{{url_for('index.report', id=item.id)}}">Generate report</a></td>
+            </tr>
+            {% for comp in data.components%}
+                    {% if comp.asset_id == item.id%}
+                    <tr>
+                        <td>{{comp.componentName}}</td>
+                        <td><a href="{{url_for('index.delete', id=comp.id)}}">delete</a></td>
+                    </tr>
+                    {% endif%}
+                {% endfor %}
+            {% endfor %}
+        </table>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

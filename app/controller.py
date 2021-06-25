@@ -1,6 +1,5 @@
-
 from flask import url_for
-from app.model import asset
+from app.model import asset, component
 from app import db
 
 
@@ -13,8 +12,20 @@ def add():
     return y
 
 def getAssetByName(n):
-    thisAsset = asset.query.filter_by(name=n).first()
+    thisAsset = asset.query.filter_by(assetName=n).first()
     if not thisAsset:
         return None
     else: 
         return thisAsset.id
+
+def getAllAssets():
+    return asset.query.all()
+
+def getAllComponents():
+    return component.query.all()
+
+def removeComponent(cid):
+    comp = component.query.filter_by(id=cid).first()
+    db.session.delete(comp)
+    db.session.commit()
+    return True

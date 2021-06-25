@@ -5,15 +5,15 @@ from wtforms.validators import DataRequired
 # register form
 class assetForm(FlaskForm):
     name = StringField('Asset Name', validators=[DataRequired()])
-    endofservice = IntegerField('endofservice', validators=[DataRequired()])
-    budget = IntegerField('budget', validators=[DataRequired()])
-    Carbon_p_y = IntegerField('Carbon_p_y', validators=[DataRequired()])
-    submit = SubmitField('NEXT')
+    endofservice = IntegerField('Expected end of service', validators=[DataRequired()])
+    budget = IntegerField('budget for recommission', validators=[DataRequired()])
+    Carbon_p_y = IntegerField('Carbon emission per year(ton)', validators=[DataRequired()])
+    submit = SubmitField('Submit')
 
 class componentForm(FlaskForm):
-    asset = StringField("parrent asset")
-    decomCost_p_unit = IntegerField('User Name', validators=[DataRequired()])
-    decomUnit = IntegerField('', validators=[DataRequired()])
-    CanBeUsedForHydrogenProduction = BooleanField('Reuseable', validators=[DataRequired()])
-    moreComponents = BooleanField("More assets", default=True)
-    submit = SubmitField('finish')
+    asset = StringField("Parent Asset", validators=[DataRequired()])
+    componentName = StringField("Component Name", validators=[DataRequired()])
+    decomCost_p_unit = IntegerField('Decomposition cost per unit', validators=[DataRequired()])
+    decomUnit = IntegerField('Units Included', validators=[DataRequired()])
+    CanBeUsedForHydrogenProduction = BooleanField('Reuseable')
+    submit = SubmitField('Submit')
