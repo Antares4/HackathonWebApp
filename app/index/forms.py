@@ -18,7 +18,7 @@ class assetForm(FlaskForm):
 class componentForm(FlaskForm):
     asset = StringField("Parent Asset", validators=[DataRequired()])
     componentName = StringField("Component Name", validators=[DataRequired()])
-    decomCost_p_unit = IntegerField('Decomposition cost per unit', validators=[DataRequired()])
+    decomCost_p_unit = IntegerField('Decommission cost per unit', validators=[DataRequired()])
     decomUnit = IntegerField('Units Included', validators=[DataRequired()])
     HydroProd = BooleanField('Reuseable for Hydrogen production')
     CarbProd = BooleanField('Reuseable for Carbon capture')

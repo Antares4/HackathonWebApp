@@ -5,7 +5,7 @@ from app.index.forms import assetForm, componentForm
 from app import db
 from app.model import asset, component
 from app.model import asset
-from app.controller import getAssetByName, getAllAssets, getAllComponents, removeComponent
+from app.controller import getAssetIdByName, getAllAssets, getAllComponents, removeComponent, genReport
 import json
 
 #route to home page ssss
@@ -28,7 +28,7 @@ def index(type="asset"):
             comp.decomUnit = form.decomUnit.data
             comp.HydroProd = form.HydroProd.data
             comp.CarbProd = form.CarbProd.data
-            comp.asset_id = getAssetByName(form.asset.data)
+            comp.asset_id = getAssetIdByName(form.asset.data)
             if comp.asset_id:
                 db.session.add(comp)
                 db.session.commit()
@@ -72,7 +72,7 @@ def delete(id):
 
 @bp.route('/report/<id>')
 def report(id):
-    print("report", id)
+    genReport(id)
     existing_assets = getAllAssets()
     existing_components = getAllComponents()
     export = {
