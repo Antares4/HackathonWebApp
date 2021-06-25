@@ -23,8 +23,8 @@ def index():
         return render_template('success.html', form=form, add=x)
     return render_template('index.html', form=form)
 
-@bp.route('/index',methods=['GET', 'POST'])
-def index():
+@bp.route('/comp',methods=['GET', 'POST'])
+def comp():
     form = componentForm()
     if form.validate_on_submit():
         asse = asset()
