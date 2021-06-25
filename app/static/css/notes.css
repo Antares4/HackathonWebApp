@@ -1,0 +1,116 @@
+.pianocontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pianocontainer .set li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 40px;
+  cursor: default;
+  user-select: none;
+}
+.set {
+  display: flex;
+}
+ul {
+  list-style: none;
+}
+
+.white {
+  width: 100px;
+  height: 300px;
+  background-color: white;
+  border: 1px solid black;
+  transition: all 0.4s ease 0.01s;
+}
+
+.black {
+  color: white;
+  width: 40px;
+  height: 170px;
+  background-color: black;
+  border: 1px solid black;
+  margin-left: -20px;
+  margin-right: -20px;
+  z-index: 1;
+  transition: all 0.4s ease 0.01s;
+}
+
+.black:hover {
+  background-color: rgb(39, 39, 41);
+}
+.white:hover {
+  background-color: rgb(199, 203, 216);
+}
+.black:active {
+  background-color: black;
+}
+.white:active {
+  background-color: white;
+}
+/* also use for navbar thing */
+@media screen and (max-width: 1130px) {
+  .block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .set .white {
+    width: 70px;
+    height: 200px;
+  }
+  .set .black {
+    width: 30px;
+    height: 100px;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
+@media screen and (max-width: 717px) {
+  .set .white {
+    width: 50px;
+    height: 170px;
+  }
+  .set .black {
+    font-size: 9px;
+    width: 20px;
+    height: 80px;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .para h1 {
+    font-size: 5ex;
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  .block .arrow-container {
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    top: -100%;
+    transition: 1s ease;
+  }
+  #fixed-nav .items {
+    display: none;
+  }
+  #fixed-nav .hamburger {
+    display: block;
+  }
+  ul.items.min-nav {
+    display: block;
+    padding-top: 5px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+.block .arrow-container.active {
+  top: 0;
+}
