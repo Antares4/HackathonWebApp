@@ -1,0 +1,15 @@
+Type,Year,Cost for Installation /kW ($),Cost of Production /kg ($),Cost of Transport /kg/100km,Cost of Storage /kg,Sell Price / kg,Efficiency (kWh/kgH2)
+Alkaline,2022,181,2.70,0.15,0.70 (gas) / 2.80 (liquid),4.00,58
+Alkaline,2025,163,2.05,0.14,0.64 (gas) / 2.50 (liquid),3.80,58
+Alkaline,2030,135,1.40,0.12,0.53 (gas) / 2.10 (liquid),3.35,58
+Alkaline,2035,126,1.25,0.11,0.46 (gas) / 1.80 (liquid),3.00,53
+Alkaline,2040,117,1.10,0.09,0.37 (gas) / 1.50 (liquid),2.65,49
+Alkaline,2045,107,0.95,0.08,0.28 (gas) / 1.10 (liquid),2.30,49
+Alkaline,2050,98,0.80,0.06,0.17 (gas) / 0.80 (liquid),2.00,49
+PEM,2022,210,3.50,0.15,0.70 (gas) / 2.80 (liquid),4.00,54
+PEM,2025,172,2.85,0.135,0.62 (gas) / 2.50 (liquid),3.80,54
+PEM,2030,141,2.10,0.12,0.53 (gas) / 2.10 (liquid),3.35,54
+PEM,2035,133,1.95,0.105,0.46 (gas) / 1.80 (liquid),3.00,50
+PEM,2040,125,1.80,0.09,0.37 (gas) / 1.50 (liquid),2.65,45
+PEM,2045,117,1.65,0.075,0.28 (gas) / 1.10 (liquid),2.30,45
+PEM,2050,109,1.40,0.06,0.17 (gas) / 0.80 (liquid),2.00,45

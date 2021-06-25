@@ -3,13 +3,20 @@ from app.model import asset, component
 from app import db
 
 
-#creates user, validates and sets password 
-#return flase on exception
-def add():
-    a = asset.query.filter_by(id=1).first()
-    y = int(a.endofservice) + int(a.budget)
-    print(y)
-    return y
+def getComponentsById(id):
+    comp = component.query.filter_by(asset_id=id).all()
+    return comp
+
+def decomissionCost(asset_id):
+    components = getComponentsById(asset_id)
+    totalCost = 0
+    for item in components:
+        totalCost += item.decomCost_p_unit * item.decomUnit
+    return totalCost
+
+def carbonCaptureCost(asset_id):
+    
+    return None
 
 def getAssetByName(n):
     thisAsset = asset.query.filter_by(assetName=n).first()

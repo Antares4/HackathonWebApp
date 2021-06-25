@@ -18,28 +18,73 @@
                 {% endfor %}
             </p>
             <p>
-                {{ form.endofservice.label }}
+                {{ form.yearOfDepletion.label }}
                 <br>
-                {{ form.endofservice(size=32,id="endofservice") }}
+                {{ form.yearOfDepletion(size=32,id="yearOfDepletion") }}
                 <br>
-                {% for error in form.endofservice.errors %}
+                {% for error in form.yearOfDepletion.errors %}
+                    <span class="warning" style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.yearOfDecommission.label }}
+                <br>
+                {{ form.yearOfDecommission(size=32,id="budget") }}
+                <br>
+                {% for error in form.yearOfDecommission.errors %}
                     <span class="warning" style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
                 {{ form.budget.label }}
                 <br>
-                {{ form.budget(size=32,id="budget") }}
-                <br>
+                {{ form.budget(size=32)}}
                 {% for error in form.budget.errors %}
-                    <span class="warning" style="color: red;">[{{ error }}]</span>
+                <br>
+                <span class="warning" style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
-                {{ form.Carbon_p_y.label }}
+                {{ form.expCarbCapture.label }}
                 <br>
-                {{ form.Carbon_p_y(size=32)}}
-                {% for error in form.Carbon_p_y.errors %}
+                {{ form.expCarbCapture(size=32)}}
+                {% for error in form.expCarbCapture.errors %}
+                <br>
+                <span class="warning" style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.carbTrans.label }}
+                <br>
+                {{ form.carbTrans(size=32)}}
+                {% for error in form.carbTrans.errors %}
+                <br>
+                <span class="warning" style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.expHydrProduction.label }}
+                <br>
+                {{ form.expHydrProduction(size=32)}}
+                {% for error in form.expHydrProduction.errors %}
+                <br>
+                <span class="warning" style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.hydrTrans.label }}
+                <br>
+                {{ form.hydrTrans(size=32)}}
+                {% for error in form.hydrTrans.errors %}
+                <br>
+                <span class="warning" style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.stormthd.label }}
+                <br>
+                {{ form.stormthd}}
+                {% for error in form.stormthd.errors %}
                 <br>
                 <span class="warning" style="color: red;">[{{ error }}]</span>
                 {% endfor %}
@@ -90,10 +135,19 @@
                 {% endfor %}
             </p>
             <p>
-                {{ form.CanBeUsedForHydrogenProduction.label }}
+                {{ form.HydroProd.label }}
                 <br>
-                {{ form.CanBeUsedForHydrogenProduction(size=32)}}
-                {% for error in form.CanBeUsedForHydrogenProduction.errors %}
+                {{ form.HydroProd(size=32)}}
+                {% for error in form.HydroProd.errors %}
+                <br>
+                <span class="warning" style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.CarbProd.label }}
+                <br>
+                {{ form.CarbProd(size=32)}}
+                {% for error in form.CarbProd.errors %}
                 <br>
                 <span class="warning" style="color: red;">[{{ error }}]</span>
                 {% endfor %}

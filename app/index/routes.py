@@ -26,7 +26,8 @@ def index(type="asset"):
             comp.componentName = form.componentName.data
             comp.decomCost_p_unit = form.decomCost_p_unit.data
             comp.decomUnit = form.decomUnit.data
-            comp.CanBeUsedForHydrogenProduction = form.CanBeUsedForHydrogenProduction.data
+            comp.HydroProd = form.HydroProd.data
+            comp.CarbProd = form.CarbProd.data
             comp.asset_id = getAssetByName(form.asset.data)
             if comp.asset_id:
                 db.session.add(comp)
@@ -43,9 +44,13 @@ def index(type="asset"):
         if form.validate_on_submit():
             asse = asset()
             asse.assetName = form.name.data
-            asse.endofservice = form.endofservice.data
-            asse.budget = form.budget.data
-            asse.Carbon_p_y = form.Carbon_p_y.data
+            asse.yearOfDepletion = form.yearOfDepletion.data
+            asse.yearOfDecommission = form.yearOfDecommission.data
+            asse.expCarbProduction = form.expCarbCapture.data
+            asse.carbTrans = form.carbTrans.data
+            asse.expHydrProduction = form.expHydrProduction.data
+            asse.hydrTrans = form.hydrTrans.data
+            asse.stormthd = form.stormthd.data
             db.session.add(asse)
             db.session.commit()
             return redirect(url_for('index.index',type="asset"))
