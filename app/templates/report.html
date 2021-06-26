@@ -1,0 +1,103 @@
+{%extends "base.html"%}
+{% block content %}
+<div id="pdf">
+    <button><a href="{{url_for('index.index', type='component')}}">Back</a></button>
+<table>
+    <tr><th>Decommission cost</th></tr>
+    <tr><td>{{data.decom}}</td></tr>
+</table>
+    <table>  
+    <tr>
+        <th>Carbon Capture</th>
+    </tr>
+    {% for carb in data.carbon %}
+        <tr>
+            <th>{{carb.type}}</th>
+        </tr>
+        <tr>
+            <td>Duration</td>
+        {% for duration in carb.duration %}
+            <td>{{duration}}</td>
+        {% endfor %}
+        </tr>
+        <tr>
+            <td>Cost per ton</td>
+        {% for costs in carb.Cost %}
+            <td>{{costs}}</td>
+        {% endfor %}
+        <td>0</td>
+        </tr>
+        <tr>
+            <td>Capture amount(ton)</td>
+            <td>{{thisAsset.expCarbProduction}}</td>
+        </tr>
+        <tr>
+            <td>Yearly cost</td>
+        {% for co in carb.yearlyCost %}
+            <td>{{co}}</td>
+        {% endfor %}
+        <td>0</td>
+        </tr>
+        <tr>
+            <td>Remaining fund</td>
+            <td>{{carb.remainingFund}}</td>
+        </tr>
+        <tr>
+            <td>Remaining dicommission cost</td>
+            <td>{{carb.remaining}}</td>
+        </tr>
+    {% endfor %}
+</table>
+<table>  
+    <tr>
+        <th>Hydrogen production</th>
+    </tr>
+    {% for hydr in data.hydrogen%}
+        
+        <tr>
+            <th>{{hydr.type}}</th>
+        </tr>
+        <tr>
+            <td>Duration</td>
+        {% for duration in hydr.duration %}
+            <td>{{duration}}</td>
+        {% endfor %}
+        </tr>
+        <tr>
+            <td>Cost per ton</td>
+        {% for costs in hydr.Cost %}
+            <td>{{costs}}</td>
+        {% endfor %}
+        <td>0</td>
+        </tr>
+        <tr>
+            <td>Production amount(ton)</td>
+            <td>{{thisAsset.expHydrProduction}}</td>
+        </tr>
+        <tr>
+            <td>Yearly cost</td>
+        {% for co in hydr.yearlyCost %}
+            <td>{{co}}</td>
+        {% endfor %}
+        <td>0</td>
+        </tr>
+        <tr>
+            <td>Remaining fund</td>
+            <td>{{hydr.remainingFund}}</td>
+        </tr>
+        <tr>
+            <td>Remaining dicommission cost</td>
+            <td>{{hydr.remaining}}</td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+
+<button id="g" onclick="generate()">Generate PDF</button>
+<script>
+    function generate(){
+        var element = document.getElementById('pdf');
+        html2pdf(element);
+    }
+</script>
+{% endblock %}

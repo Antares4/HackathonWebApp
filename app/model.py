@@ -12,6 +12,7 @@ class asset(UserMixin, db.Model):
     assetName = db.Column(db.String(100), nullable=False)
     yearOfDepletion = db.Column(db.Integer, nullable=False)
     yearOfDecommission = db.Column(db.Integer, nullable=False)
+    budget = db.Column(db.Integer, nullable=False)
     expCarbProduction = db.Column(db.Integer, nullable=False)
     carbTrans = db.Column(db.Integer, nullable=False)
     expHydrProduction = db.Column(db.Integer, nullable=False)
